@@ -1,0 +1,13 @@
+name: vignexp
+title: vignexp
+username:
+account: vvseva
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 4866121
+bundleId: 5136395
+url: https://vvseva.shinyapps.io/vignexp/
+when: 1634163536.31209
+lastSyncTime: 1634163536.3121
+asMultiple: FALSE
+asStatic: FALSE

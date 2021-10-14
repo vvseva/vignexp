@@ -1,0 +1,812 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans&display=swap');
+
+body {
+  margin:0;
+  padding:0;
+  z-index:99;
+}
+
+// Styling for fullpage
+#fullpage {
+  height:100vh;
+  overflow:hidden;
+}
+
+#fullpage section {
+  height:100vh;
+  margin: 0;
+}
+
+.container-fluid {
+  padding-left:0;
+  padding-right:0;
+}
+
+// Syling of the landing page
+.landing_page {
+  color: black;
+  text-align: left;
+  padding-left: 8%;
+  h1 {
+    margin-top: 0;
+    padding-top: 8%;
+    font-size: calc(2em + 3vw);
+    font-weight: bold;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  h2 {
+    margin-top: 17%;
+    font-size: calc(1em + 2.5vw);
+    font-weight: bold;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  h6 {
+    font-size: calc(0.2em + 0.5vw);
+  }
+}
+
+// Styling of a content page
+.content_page {
+  color: black;
+  text-align: left;
+  font-family: 'IBM Plex Sans', sans-serif;
+  .content_header {
+    height: 20vh;
+  }
+  .content_footer {
+    height: 5vh;
+  }
+  .content_table {
+    margin-left: 8%;
+  }
+  h1 {
+    margin-top: 0;
+    margin-left: 8%;
+    padding-top: 4%;
+    font-size: calc(1em + 2.5vw);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  h2 {
+    margin-top: 20%;
+    font-size: calc(1em + 1.5vw);
+  }
+  h4 {
+    text-align: left;
+    margin-left: 8%;
+    font-size: calc(1em + 0.3vw);
+  }
+  p {
+    font-size: calc(1em + 1.5vw);
+    width: 80%;
+    text-align: left;
+    padding-top: 15%;
+    padding-left: 8%;
+  }
+  
+  table {
+    font-size: calc(1em + 1vw);
+    tr {
+      height: 7vh;
+    }
+    .col_rank {
+      width: 4vw;
+    }
+    .col_name {
+      width: 30vw;
+    }
+    .col_img {
+      width: 10vw;
+      img {
+        opacity: 1;
+        width: 3vw;
+        height: 3vw;
+      }
+    }
+  }
+}
+
+// Styling of accent and bg color
+.accent {
+  color: #EA5F23;
+}
+
+#fullpage section:nth-of-type(odd) {
+  background: #002fa7;
+}
+
+#fullpage section:nth-of-type(even) {
+  background: #0036c1;
+}
+
+.hidden2 {
+  opacity: 0;
+}
+
+.reveal1 {
+  opacity: 1;
+}
+
+.modal-dialog {
+  width: 90%;
+  color: #fff;
+}
+
+// Styling of the modal
+.modal-content {
+  border-radius: 0;
+  background-color: #2400a7 !important;
+  .col-sm-10 {
+    padding-left: 0;
+  }
+}
+
+.modal-body {
+  margin-left: 2vw;
+  font-family: 'IBM Plex Mono', monospace;
+  h6 {
+    font-size: calc(1em + 0.9vw);
+  }
+  
+  p {
+    font-size: calc(1em + 0.4vw);
+  }
+}
+
+.modal-header {
+  margin-left: 2vw;
+  border-bottom: 0px;
+  font-family: 'IBM Plex Mono', monospace;
+  margin-bottom: -2%;
+}
+
+img {
+  width: calc(4em + 3vw);
+  float: center;
+  opacity: 1;
+}
+
+figure {
+  img {
+    opacity: 1 !important;
+    float:right;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    margin-bottom: -2%;
+    margin-right: 0.5%;
+    margin-top: 0.5%;
+    width: calc(3em + 5vw);
+    height: calc(3em + 5vw);
+  }
+  figcaption {
+    float: left;
+    h4 {
+      font-size: calc(1em + 3vw);
+      margin-top: 4%;
+    }
+  }
+}
+
+.tab-content>.tab-pane {
+ height: 70vh;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #2400a7;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+ color:#2400a7;
+ cursor:default;
+ background-color:#fff;
+ border:1px solid #ddd;
+ border-bottom-color:transparent
+}
+
+
+
+$ease: cubic-bezier(0.165, 0.84, 0.44, 1);
+$highlight-color: #505050;
+
+@mixin absolute-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.banner {
+  margin:-8px; 
+  height: 50vh;
+  width: 100vw;
+}
+
+.song_title {
+  font-size: calc(1em + 2vw);
+  margin-top: auto;
+  margin-bottom: auto;
+  position: absolute;
+  top: 5%;
+  bottom: 10%;
+}
+
+.song_uri {
+  iframe {
+    height: calc(10em + 10vh);
+    margin-bottom: 2vh;
+  }
+}
+
+.btn{
+  border:1px solid #fff;
+}
+
+.bootstrap-select > .dropdown-toggle {
+  background-color: #2400a7;
+  color: #fff;
+}
+
+div.dropdown-menu {
+ background-color: #2400a7;
+}
+
+
+ul.dropdown-menu {
+  background-color: #2400a7;
+}
+
+.bootstrap-select .dropdown-menu li a {
+  color: #fff;
+}
+
+.dropdown-menu > li > a:focus, .dropdown-menu > li > a:hover {
+  background-color: rgba(234, 95, 35, 0.1);
+}
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+  background-color: rgba(234, 95, 35, 0.5);
+}
+
+.dropdown-menu {
+  box-shadow: 0 6px 12px rgba(234, 95, 35, 0.1);
+}
+
+iframe {
+  width: 100%;
+  height: calc(5em + 30vw);
+  margin-top: 2vh;
+  display: block;
+  border: 1px solid rgba(234, 95, 35, 0.3);
+  box-shadow: 0 6px 12px #EA5F23;
+}
+
+.column {
+  width: calc(3em + 5vw);
+  position: relative;
+  overflow: hidden;
+  transition: all ease-in-out .3s;
+}
+
+section:nth-of-type(5) .column:first-of-type {
+  flex-grow: 2;
+  flex-shrink: 2;
+  flex-basis: 22px;
+}
+
+section:nth-of-type(6) .column:nth-of-type(2) {
+  flex-grow: 4;
+  flex-shrink: 4;
+  flex-basis: 66px;
+}
+
+.column img {
+  object-fit: cover;
+  display: block;
+  transition: all ease-in-out .5s;
+}
+
+.column::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: all ease-in-out .5s;
+}
+
+.accent_img {
+  background-color: #e0de2c;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  float:right;
+  margin-right: 0.5%;
+}
+
+.accent_img img {
+  mix-blend-mode: multiply;
+  -webkit-filter: grayscale(100%) contrast(.8);
+  filter: grayscale(100%) contrast(.8);
+}
+
+.accent_img::after {
+  background-color: #b71310;
+  mix-blend-mode: lighten;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+#also {
+  margin-left: 2%;
+}
+
+// Styling the waves
+#waves {
+  position: absolute;
+  z-index: 20;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+// Plot styling 1
+#change_plot {
+  margin: auto;
+  left: 10%;
+  right: 10%;
+  top: 20%;
+  bottom: 20%;
+}
+
+#break {
+ height: 20vh;
+}
+
+
+// Plot Styling 2
+.cluster_col {
+  height: 100%;
+ text-align: center;
+ text-align: center;
+ line-height: calc(0.7em + 1vh);
+ font-size: calc(2em + 3vh);
+ font-weight: bold !important;
+ margin-top: 5vh;
+ h3 {
+   &:hover {
+     color: rgba(234, 95, 35, 0.8);
+   }
+ }
+}
+
+#radarchart {
+  margin: auto;
+  left: 10%;
+  right: 10%;
+  top: 20%;
+  bottom: 20%;
+  background-color: #121212;
+}
+
+*, *:before, *:after{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:border-box;
+  box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 640px){
+  .container{
+    display: block;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px){
+  .container{
+    width: 33.33333%;
+  }
+}
+
+.clust_out {
+ line-height: calc(1em + 0.5vh);
+ font-size: calc(0.2em + 0.1vw);
+}
+
+.content_cluster {
+  height: 70vh;
+}
+
+// Styling of the buttons
+#at_grid_button {
+  margin: 0;
+  width: 10vw;
+  font-size: calc(0.5em + 0.5vw);
+  margin-top: 30vh;
+  margin-left: 45vw;
+  margin-right: 45vw;
+  z-index: 100;
+  position: relative;
+  color: #fff;
+  border-color: #EA5F23;
+  background-color: #002fa7;
+  font-family: 'IBM Plex Mono', monospace;
+  &:hover {
+    background-color: #EA5F23;
+    border-color: #fff;
+  }
+}
+
+#rc_grid_button {
+  margin: 0;
+  width: 10vw;
+  font-size: calc(0.5em + 0.5vw);
+  margin-top: 30vh;
+  margin-left: 45vw;
+  margin-right: 45vw;
+  z-index: 100;
+  position: relative;
+  color: #fff;
+  border-color: #EA5F23;
+  background-color: #002fa7;
+  font-family: 'IBM Plex Mono', monospace;
+  &:hover {
+    background-color: #EA5F23;
+    border-color: #fff;
+  }
+}
+
+
+section.content_page:nth-child(12) > p:nth-child(1) {
+ padding-top: 12%;
+}
+#ui_playlist {
+ text-align: center;
+ margin-top: 25vh;
+}
+
+.form-group {
+ width: 67%;
+ margin-left: auto;
+ margin-right: auto;
+ font-family: 'IBM Plex Mono', monospace;
+ font-size: calc(0.5em + 0.5vw);
+}
+
+
+#playlist_create {
+ width: 10vw;
+ font-size: calc(0.5em + 0.5vw);
+ color: #fff;
+ background-color: #002fa7;
+ border-color: #EA5F23;
+ font-family: 'IBM Plex Mono', monospace;
+ &:hover {
+   background-color: #EA5F23;
+   border-color: #fff;
+ }
+}
+
+.playlist_hide {
+  opacity: 0;
+}
+
+.playlist_show {
+  margin-top: -39vh
+}
+
+.content_playlist {
+  height: 73vh;
+}
+
+// all this area stuff
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas: "area1 area2 area3 area3 area4 area5 area6" "area10 area9 area9 area8 area4 area7 area6" "area11 area11 area16 area17 area19 area20 area20" "area13 area13 area15 area18 area18 area20 area20" "area12 area14 area14 area23 area24 area25 area26" "area12 area21 area22 area28 area28 area25 area27" ". . . . . . .";
+  height: 75vh;
+  width: 80vw;
+  margin: 0 auto 0 8%;
+}
+.area1 { 
+  grid-area: area1; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area2 { 
+  grid-area: area2; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area3 { 
+  grid-area: area3;
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area4 { 
+  grid-area: area4; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area5 { 
+  grid-area: area5;
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+} 
+.area6 { 
+  grid-area: area6; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area7 { 
+  grid-area: area7; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area8 { grid-area: area8; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area9 { 
+  grid-area: area9; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area10 { 
+  grid-area: area10; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area11 { 
+  grid-area: area11; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area12 { 
+  grid-area: area12;
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+} 
+.area13 { 
+  grid-area: area13; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area14 { 
+  grid-area: area14;
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+} 
+.area15 { 
+  grid-area: area15; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area16 { 
+  grid-area: area16; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area17 { 
+  grid-area: area17;
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+} 
+.area18 { 
+  grid-area: area18;
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+} 
+.area19 { 
+  grid-area: area19; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area20 { 
+  grid-area: area20; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area21 { 
+  grid-area: area21; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area22 { 
+  grid-area: area22; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area23 { 
+  grid-area: area23; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area24 { 
+  grid-area: area24; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area25 { 
+  grid-area: area25; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area26 { 
+  grid-area: area26; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area27 { 
+  grid-area: area27; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+.area28 { 
+  grid-area: area28; 
+  align-items: center;
+  justify-content: center;
+  margin-left: random(100) / 100 * 100%;
+  display: flex;
+  height: 100%;
+}
+section.content_page:nth-child(16) > div:nth-child(3) {
+ height: 15vh;
+ background-color: #0036c1;
+}
+.github {
+  float: right;
+  margin-right: 10vw;
+  margin-top: 3vh;
+  font-size: calc(1em + 1vw);
+  font-family: 'IBM Plex Mono', monospace;
+  position: fixed;
+  z-index: 20;
+  left: 92vw;
+  top: 90vh;
+  a {
+    &:visited {
+      color: #fff;
+    }
+    &:hover {
+      color: #EA5F23;
+    }
+    &:active {
+      color: #EA5F23;
+    }
+  }
+}
+
+// custom slider
+.irs-bar  {
+  border-color: #06857a;
+  background-color: #06857a;
+  border-top: 1px solid #06857a;
+  border-bottom: 1px solid #06857a;
+}
+                    
+.irs-bar-edge {
+  border-color: #06857a;
+  background-color: #06857a;
+  border-top: 1px solid #06857a;
+  border-bottom: 1px solid #06857a;
+}
+
+.irs-single {
+  border-color: #06857a;
+  background-color: #06857a;
+  border-top: 1px solid #06857a;
+  border-bottom: 1px solid #06857a;
+}
+                    
+.irs-to {
+  border-color: #06857a;
+  background-color: #06857a;
+  border-top: 1px solid #06857a;
+  border-bottom: 1px solid #06857a;
+}
+                    
+.irs-from {
+  border-color: #06857a;
+  background-color: #06857a;
+  border-top: 1px solid #06857a;
+  border-bottom: 1px solid #06857a;
+}
