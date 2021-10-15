@@ -25,7 +25,6 @@ library(stringr)
 library(waiter)
 
 # Define UI for application that draws a histogram
-
 css <- sass(sass_file("www/styles.scss"))
 ui <- source(file.path("ui", "ui.R"), local = TRUE)$value
 
@@ -54,6 +53,7 @@ server <- function(input, output, session) {
   # }
   
   source(file.path("server", "generate_1.R"), local = TRUE)$value
+  source(file.path("server", "location.R"), local = TRUE)$value
   # source(file.path("server", paste("generate_2.R", random_df[1, 1])), local = TRUE)$value
   # source(file.path("server", "cluster_react.R"), local = TRUE)$value
   # source(file.path("server", "highcharts.R"), local = TRUE)$value

@@ -1,8 +1,8 @@
 fillPage(
-  title = "Your Spotify Listening Habits",
+  title = "Motivation Citizen Science",
   add_busy_spinner(
     spin = "semipolar",
-    color = "#EA5F23",
+    color = "#008080",
     margins = c(40, 20),
     height = "5%",
     width = "5%"
@@ -16,6 +16,8 @@ fillPage(
     id = "fullpage",
     source(file.path("ui", "section1.R"), local = TRUE)$value,
     source(file.path("ui", "section2.R"), local = TRUE)$value,
+    source(file.path("ui", "get_location.R"), local = TRUE)$value,
+    source(file.path("ui", "show_location.R"), local = TRUE)$value,
     source(file.path("ui", "vign_1.R"), local = TRUE)$value,
     source(file.path("ui", "vign_2.R"), local = TRUE)$value,
   ),
