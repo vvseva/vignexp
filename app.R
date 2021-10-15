@@ -23,6 +23,9 @@ library(shinyWidgets)
 library(sass)
 library(stringr)
 library(waiter)
+library(shinysky)
+
+source("server/functions.R")
 
 # Define UI for application that draws a histogram
 css <- sass(sass_file("www/styles.scss"))
