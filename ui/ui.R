@@ -4,8 +4,8 @@ fillPage(
     spin = "semipolar",
     color = "#008080",
     margins = c(40, 20),
-    height = "5%",
-    width = "5%"
+    height = "15%",
+    width = "15%"
   ),
   tags$head(
     tags$style(css),
