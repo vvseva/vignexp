@@ -1,7 +1,8 @@
 tags$section(
   class = "content_page",
   # useShinyjs(),
-  uiOutput("geo_collect")
+  uiOutput("geo_collect"),
+  uiOutput("geo_collect_manual")
 )
 # HTML(
 #   "<p>
