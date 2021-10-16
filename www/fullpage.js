@@ -107,3 +107,9 @@ js source: https://www.jqueryscript.net/animation/Basic-Cross-platform-One-Page-
 })(this,this.jQuery);
 //Call the function and the plugin will take care of the rest.
 $('#fullpage').fullpage();
+
+
+/*shinyjs.init = function(){
+    $('selectInput_geo_manual_row').hide();
+  
+}*/
