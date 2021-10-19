@@ -14,16 +14,17 @@ library(httr)
 library(lubridate)
 library(mlr)
 library(plyr)
+library(tidyr)
 library(rlist)
 library(shiny)
 library(shinybusy)
 library(shinyjs)
 library(shinyWidgets)
-# library(spotifyr)
 library(sass)
 library(stringr)
 library(waiter)
-library(shinysky)
+library(shinyWidgets)
+# library(shinysky)
 
 source("server/functions.R")
 
@@ -36,10 +37,13 @@ ui <- source(file.path("ui", "ui.R"), local = TRUE)$value
 ui <- source(file.path("ui", "ui.R"), local = TRUE)$value
 # Define server logic required to draw a histogram
 server <- function(input, output, session) {
+  
   # runjs(jscode)
   # get_access_token <- reactive({
   #   url_hash <- getUrlHash()
-  #   access_token <- url_hash %>% str_replace('&.*', '') %>% str_replace('.*=', '')
+  #   access_token <- url_hash %>% 
+  # str_replace('&.*', '') %>%
+  #   str_replace('.*=', '')
   #   access_token
   # })
   # a <- reactive({
@@ -54,10 +58,10 @@ server <- function(input, output, session) {
   # } else {
   #   source(file.path("server", "create_spotify_thingys.R"), local = TRUE)$value
   # }
-  
+  load("data/map.RData")
+  load("data/texts.RData")
   source(file.path("server", "generate_1.R"), local = TRUE)$value
   source(file.path("server", "location.R"), local = TRUE)$value
-  # source(file.path("server", paste("generate_2.R", random_df[1, 1])), local = TRUE)$value
   # source(file.path("server", "cluster_react.R"), local = TRUE)$value
   # source(file.path("server", "highcharts.R"), local = TRUE)$value
   # source(file.path("server", "ui_outputs.R"), local = TRUE)$value
