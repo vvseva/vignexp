@@ -1,0 +1,134 @@
+---
+title: "cjpower"
+author: "Suschevskiy Vsevolod"
+date: "2/12/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(cjpowR)
+library(Superpower)
+```
+
+
+## cjpowR
+
+```{r}
+# devtools::install_github("m-freitag/cjpowR")
+# average marginal component effect” (AMCE)
+```
+
+
+
+```{r}
+citation("cjpowR")
+# Markus Freitag and Julian Schuessler (2022). cjpowR: A Priori Power
+#   Analyses for Conjoint Experiments. R package version 1.0.0.
+  
+cjpowr_amce(amce = 0.05, power = 0.8, levels = 5, alpha=0.05)
+?cjpowr_amce
+```
+
+```{r}
+# Due to the iterative calculation, vectorizing the functions is 
+# recommended when calculating curves only for the exaggeration ratio
+# given other parameters. The number of iteration steps can be
+# decreased using the "sims" parameter.
+
+cjpowr_amcie_vec <- Vectorize(cjpowr_amcie)
+
+d <- expand.grid(delta3 = c(0.01, 0.02, 0.03, 0.05), n = seq(from = 100, to = 50000, length.out = 1000))
+
+df <- t(cjpowr_amcie_vec(delta3 = d$delta3, n = d$n, sims = 10000, levels1 = 3, levels2=4, alpha = 0.05, delta0 = 0.5))
+
+df <- data.frame(df)
+
+df[] <- lapply(df, unlist)
+
+# Interactive plot
+library(plotly)
+
+plot_ly(df, x = ~n, y = ~exp_typeM, type = 'scatter', mode = 'lines', linetype = ~delta3) %>%
+ layout(
+   xaxis = list(title = "Effective Sample Size",
+                zeroline = F,
+                hoverformat = '.0f'),
+   yaxis = list(title = "Exaggeration Ratio",
+                range = c(0,10),
+                zeroline = F,
+                hoverformat = '.2f'),
+   legend=list(title=list(text='<b> AMCIE </b>')),
+   hovermode = "x unified"
+ )
+```
+
+
+## SUPERPOWER
+
+
+```{r}
+design_between <- ANOVA_design(
+  design = "3b",
+  n = 80,
+  mu = c(1, 0.5, 0),
+  sd = 2,
+  labelnames = c("condition",
+                 "cheerful", "neutral", "sad")
+)
+```
+
+```{r}
+design_within <- ANOVA_design(
+  design = "3w",
+  n = 80,
+  mu = c(1, 0.5, 0),
+  sd = 2,
+  r = 0.5, 
+#   the correlation parameter r = 0.5 is added,
+# which specifies the expected correlation between dependent
+# variables in the population
+  labelnames = c("condition",
+                 "cheerful", "neutral", "sad")
+)
+```
+
+```{r}
+# power_within = ANOVA_power(design_within,
+# nsims = 10000)
+exact_within = ANOVA_exact(design_within)
+exact_between = ANOVA_exact(design_between)
+
+
+exact_within
+exact_between
+```
+
+```{r}
+design_result_cross <- ANOVA_design(
+  design = "2b*2b",
+  n = 80,
+  mu = c(1, 0, 0, 1),
+  sd = 2,
+  labelnames = c("condition",
+                 "cheerful", "sad",
+                 "voice",
+                 "human", "robot")
+)
+
+
+```
+
+```{r}
+
+?plot_power
+power_plot = plot_power(design_result_cross,
+  min_n = 10, max_n = 400,
+  desired_power = 90, plot = TRUE,
+  )
+power_plot
+```
+
